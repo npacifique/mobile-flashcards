@@ -7,8 +7,8 @@ const NOTIFICATION_KEY = 'KEY:KEY';
 
 export function createLocalNotification() {
   return {
-    title: 'Deck App',
-    body: 'It is time to start reviewing your questions',
+    title: 'mobile-flashcards',
+    body: 'It is time to reviewing your questions',
     ios: {
       sound: true,
     },
@@ -42,7 +42,7 @@ export function setLocalNotification() {
               Notifications.cancelScheduledNotificationAsync();
 
               let tomorrow = new Date();
-              tomorrow.setDate(tomorrow.getDate());
+              tomorrow.setDate(tomorrow.getDate() + 1);
               tomorrow.setHours(18);
               tomorrow.setMinutes(5);
 
@@ -62,9 +62,7 @@ export function setLocalNotification() {
               );
             }
           })
-          .catch((e) => {
-            console.log({ error: e });
-          });
+          .catch((e) => {});
       }
     });
 }
